@@ -1,0 +1,9 @@
+CREATE TABLE pillows (id INTEGER PRIMARY KEY, quantity INTEGER, price INTEGER, name TEXT, color TEXT);
+INSERT into pillows VALUES(1, 5,20, 'PILLOW1','PINK');
+INSERT into pillows VALUES(2,10,20,'PILLOW2', 'RED');
+INSERT into pillows VALUES(3,15,20,'PILLOW3','BLUE');
+INSERT into pillows VALUES(4,20,20, 'PILLOW4', 'PURPLE');
+INSERT into pillows VALUES(5,25,20, 'PILLOW5', 'RAINBOW');
+
+SELECT * FROM pillows 
+ORDER BY quantity DESC;
