@@ -1,0 +1,84 @@
+CREATE TABLE topshows (rank INTEGER, title TEXT, year INTEGER, seasons INTEGER, genre TEXT, network INTEGER); 
+
+  
+INSERT INTO topshows (Rank,Title,Year,Seasons,Genre,Network) VALUES (10,'the chi', 2018, 5, 'drama', 'showtime'); 
+
+  
+
+INSERT INTO topshows (Rank,Title,Year,Seasons,Genre,Network) VALUES (9,'p-valley', 2020, 2, 'drama', 'starz'); 
+
+  
+
+INSERT INTO topshows (Rank,Title,Year,Seasons, Genre, Network) VALUES (10, 'power book 2: ghost', 2021, 2, 'drama', 'starz'); 
+
+  
+
+INSERT INTO topshows (Rank,Title,Year,Seasons,Genre,Network) VALUES (8,'insecure', 2016, 5, 'comedy', 'hbo'); 
+
+  
+
+INSERT INTO topshows (Rank,Title,Year,Seasons,Genre,Network) VALUES (6, 'the real housewives of atlanta', 2008, 14, 'reality', 'bravo'); 
+
+  
+
+INSERT INTO topshows (Rank,Title,Year,Seasons,Genre,Network) VALUES (5, 'on my block', 2018, 4, 'drama', 'netflix'); 
+
+  
+
+INSERT INTO topshows (Rank,Title,Year,Seasons,Genre,Network) VALUES (9, 'the boondocks', 2005, 4, 'sitcom', 'cartoon network'); 
+
+  
+
+INSERT INTO topshows (Rank,Title,Year,Seasons,Genre,Network) VALUES (4, 'jersey shore', 2009, 6, 'reality', 'mtv'); 
+
+  
+
+INSERT INTO topshows (Rank,Title,Year,Seasons,Genre,Network) VALUES (2, 'american horror story', 2011, 10, 'horror', 'fx'); 
+
+  
+
+INSERT INTO topshows (Rank,Title,Year,Seasons,Genre,Network) VALUES (10, 'squid games', 2021, 1, 'drama', 'netfilx'); 
+
+
+SELECT MAX(rank), MIN(rank)
+FROM topshows;
+
+SELECT * 
+FROM topshows
+GROUP BY network
+HAVING year >= 2017
+ORDER BY MAX(rank) DESC;
+
+SELECT title,
+
+CASE  
+
+  WHEN rank = 10 THEN "EXCELLENT"
+
+  WHEN rank = 9 THEN "EXCELLENT"
+
+  WHEN rank = 8 THEN "GREAT"
+  
+  WHEN rank = 7 THEN "GREAT"
+  
+  WHEN rank = 6 THEN "GREAT"
+  
+  WHEN rank = 5 THEN "GOOD"
+
+  ELSE 'FAIR'
+
+  END as "rank" FROM topshows
+
+  GROUP BY "title"
+  
+  ORDER BY MAX(rank) DESC;
+  
+SELECT title
+FROM topshows
+WHERE genre = 'sitcom';
+
+SELECT *
+FROM topshows
+WHERE (genre = 'drama' AND year >= 2016)
+OR (genre = 'comedy');
+  
