@@ -1,0 +1,77 @@
+CREATE TABLE Famous_People (id INTEGER PRIMARY KEY,
+first_name TEXT,
+last_name TEXT,
+birthdate TEXT,
+occupation integer);
+
+INSERT INTO Famous_People (first_name, last_Name, birthdate, occupation)
+VALUES ("Lucky", "Daye", "09-25-1985", 1);
+INSERT INTO Famous_People (first_name, last_Name, birthdate, occupation)
+VALUES ("Victoria", "Monet", "05-01-1989", 1);
+INSERT INTO Famous_People (first_name, last_Name, birthdate, occupation)
+VALUES ("Naomi", "Campbell", "05-22-1970", 2);
+INSERT INTO Famous_People (first_name, last_Name, birthdate, occupation)
+VALUES ("Winnie", "Harlow", "07-27-1994", 2);
+INSERT INTO Famous_People (first_name, last_Name, birthdate, occupation)
+VALUES ("Big", "Latto", "12-22-1998",3);
+INSERT INTO Famous_People (first_name, last_Name, birthdate, occupation)
+VALUES ("Young", "M.A", "04-03-1992", 3);
+INSERT INTO Famous_People (first_name, last_Name, birthdate, occupation)
+VALUES ("Arrogant", "Tae", "03-11-1995", 4);
+INSERT INTO Famous_People (first_name, last_Name, birthdate, occupation)
+VALUES ("Tokyo", "Stylez", "12-15-1989", 4);
+INSERT INTO Famous_People (first_name, last_Name, birthdate, occupation)
+VALUES ("Jacob", "Latimore", "08-10-1996", 5);
+INSERT INTO Famous_People (first_name, last_Name, birthdate, occupation)
+VALUES ("Michael", "Rainey", "09-22-2000",5);
+
+CREATE TABLE Profession (id INTEGER PRIMARY KEY,
+title TEXT);
+
+INSERT INTO Profession VALUES (1, "Singer");
+INSERT INTO Profession VALUES (2, "Model");
+INSERT INTO Profession VALUES (3, "Rapper");
+INSERT INTO Profession VALUES (4, "Hairstylist");
+INSERT INTO Profession VALUES (5, "Actor");
+
+
+
+
+
+SELECT *
+FROM famous_people;
+
+SELECT * 
+FROM Profession;
+
+SELECT first_name, last_name, occupation 
+FROM famous_people;
+
+SELECT FP.first_name, FP.last_name, P.title
+FROM Famous_People AS FP
+JOIN profession AS p
+ON FP.occupation = P.id 
+order by title;
+
+
+SELECT FP.first_name, FP.last_name, P.title
+FROM Famous_People AS FP
+JOIN profession AS p
+ON FP.occupation = P.id 
+ORDER BY title DESC;
+
+SELECT FP.birthdate,FP.first_name, FP.last_name, title
+FROM famous_people AS FP
+JOIN profession AS P
+ON FP.birthdate
+ORDER BY occupation;
+
+SELECT first_name, last_name, birthdate
+FROM famous_people
+LEFT JOIN profession;
+
+SELECT first_name, last_name, occupation 
+FROM famous_people
+LEFT JOIN profession AS P
+ON occupation = P.id
+ORDER BY title ASC;
